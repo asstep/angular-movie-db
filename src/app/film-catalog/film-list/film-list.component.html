@@ -1,0 +1,33 @@
+<mat-toolbar>
+    <span>
+        В избранное добавленно: {{countFavoriteFilms}} элементов
+    </span>
+
+    <span class="example-spacer"></span>
+
+    <span>
+        <mat-form-field>
+            <mat-select [(value)]="selected"
+                        [(ngModel)]="selectedSortBy"
+                        (selectionChange)="changeFilmSort($event.value)"
+                        placeholder="Сортировать">
+                <mat-option value="ASC">По алфавиту: А-Я</mat-option>
+                <mat-option value="DESC">По алфавиту: Я-А</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </span>
+</mat-toolbar>
+
+
+<mat-grid-list cols="3" rowHeight="3:6">
+    <mat-grid-tile *ngFor="let item of this.filmsArray">
+        <app-film-item [filmItem]="item"
+                       (toFavorite)="this.countFavorite($event)"></app-film-item>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div class="gridList-footer">
+    <button mat-raised-button
+            color="primary"
+            (click)="loadMore()">Загрузить еще</button>
+</div>

@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <div class="card-poster">
+                <img mat-card-image src="{{filmItem.imgUrl}}" alt="{{filmItem.name}}">
+            </div>
+            <h3 class="card-title">
+                {{filmItem.name}}
+            </h3>
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <details-inner>
+            {{(filmItem.description.length > 180) ? (filmItem.description | slice:0:180)+'...' : (filmItem.description) }}
+        </details-inner>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button (click)="this.addFavorite($event)"
+                ngClass="button-favorite {{(filmItem.isFavorite) ? 'active' : ''}}" >Добавить в израбанное</button>
+    </mat-card-actions>
+</mat-card>

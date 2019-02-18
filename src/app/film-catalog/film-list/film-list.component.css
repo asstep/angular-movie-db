@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    margin: auto;
+    max-width: 1170px;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+.gridList-footer {
+    text-align: center;
+    margin: 60px auto 70px;
+}
