@@ -1,11 +1,22 @@
 <mat-toolbar>
-    <span>
-        В избранное добавленно: {{countFavoriteFilms}} элементов
+    <span class="header-favorites">
+        Избранные: {{
+        (countFavoriteFilms <= 1) ? countFavoriteFilms+' фильм' :
+        (1>countFavoriteFilms<=4) ? countFavoriteFilms+' фильма' :
+        countFavoriteFilms+' фильмов'
+        }}
     </span>
 
-    <span class="example-spacer"></span>
+    <span class="header-search">
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Введите название фильма..." value=""
+                   (input)="findMovieByName($event)">
+          </mat-form-field>
+        </form>
+    </span>
 
-    <span>
+    <span class="header-sort">
         <mat-form-field>
             <mat-select [(value)]="selected"
                         [(ngModel)]="selectedSortBy"
@@ -29,5 +40,6 @@
 <div class="gridList-footer">
     <button mat-raised-button
             color="primary"
-            (click)="loadMore()">Загрузить еще</button>
+            (click)="loadMore()">Загрузить еще
+    </button>
 </div>

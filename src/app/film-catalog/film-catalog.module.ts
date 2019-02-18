@@ -14,6 +14,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
         MatTabsModule,
         MatToolbarModule,
         MatSelectModule,
+        MatInputModule,
     ],
     declarations: [
         MainComponent,

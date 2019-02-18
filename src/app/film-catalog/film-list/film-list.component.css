@@ -3,8 +3,13 @@
     margin: auto;
     max-width: 1170px;
 }
-.example-spacer {
+.header-search {
+    text-align: center;
     flex: 1 1 auto;
+    padding: 0 40px;
+}
+.header-search .mat-form-field {
+    width: 100%;
 }
 .gridList-footer {
     text-align: center;

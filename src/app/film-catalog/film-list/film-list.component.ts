@@ -11,7 +11,7 @@ export class FilmListComponent implements OnInit {
     selectedSortBy:string;
     offsetFilms:number = 0;
     countUpload:number = 3;
-    filmsArray: any[] = [];
+    filmsArray = [];
 
     constructor(private filmList: FilmService) {
     }
@@ -54,6 +54,13 @@ export class FilmListComponent implements OnInit {
         this.filmsArray.forEach(function (item) {
             (item.isFavorite) ? this.countFavorite(item.isFavorite) : '';
         }, this)
+    }
+
+    // Find films by name
+    findMovieByName($event) {
+        ($event.target.value.length > 1) ?
+            this.filmsArray = this.filmList.getFimsByName($event.target.value) :            //search by name
+            this.filmsArray = this.filmList.getFilms(0,this.countUpload);    //set default
     }
 
     ngOnInit() {

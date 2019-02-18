@@ -8,6 +8,7 @@ import {Observable, Subject} from 'rxjs';
 export class FilmService {
     // countUpload : number = 3;
     // offsetFilms : number = 0;
+    arrayByName = [];
     constructor() {
     }
 
@@ -112,5 +113,13 @@ export class FilmService {
 
     getFilms(offsetFilms:number, countUpload:number) {
         return this.films.slice(offsetFilms, countUpload);
+    }
+
+    getFimsByName(name:string){
+        this.arrayByName = [];
+        this.films.forEach(function (item) {
+            (item.name.toLowerCase().search(name.toLowerCase()) != -1) ? this.arrayByName.push(item) : '';
+        }, this);
+        return this.arrayByName;
     }
 }
